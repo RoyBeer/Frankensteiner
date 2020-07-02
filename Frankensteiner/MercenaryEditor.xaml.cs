@@ -42,24 +42,23 @@ namespace Frankensteiner
             }
             #endregion
 
-            string[] nameValue =
-                {"Mouth - Middle", "Mouth - Edges", "Nose - Bottom", "Left Eyebrow", "Unknown Value", "Right Eyebrow", "Right Eye",
-                "Unknown Value", "Unknown Value", "Unknown Value", "Mouth", "Left Eye", "Lips - Left Edge", "Lips - Right Edge",
-                "Chin", "Cheek - Bottom Left", "Cheek - Bottom Right", "Lower Lip", "Lower Lip - Left", "Lower Lip - Right", "Cheek - Top Left",
-                "Philtrum (Medial Cleft)", "Lip - Left", "Lip - Right", "Philtrum - Top", "Nose - Top", "Glabella (Nose Bridge) - Bottom", "Glabella (Nose Bridge) - Top",
-                "Infraorbital Margin - Right", "Cheek - Middle Left", "Cheek - Middle Right", "Left Eyebrow - Head", "Right Eyebrow - Head", "Left Eyebrow - Middle", "Right Eyebrow - Middle",
-                "Left Eyebrow - Tail", "Right Eyebrow - Tail", "Ear - Left", "Ear - Right", "Unknown Value", "Left Eyelid - Top", "Left Eyelid - Bottom",
-                "Unknown Value", "Unknown Value", "Unknown Value", "Right Eyelid - Top", "Right Eyelid - Bottom", "Cheek - Left", "Cheek - Right"};
-
             // Create 49 sliders, it consists of 3 separate sliders - one for each value
             dgValueList.ItemsSource = _sliders;
+            
+            string[] nameValue = 
+                {"middle part of mouth", "left&right part of mouth", "nose to bottom", "left eyebrow", "(to test)nothing", "right eyebrow", "right eye",
+                "(to test)nothing", "(to test)nothing", "(to test)nothing", "mouth", "left eye", "left lip commissure", "right lip commissure",
+                "chin", "bottom left cheek", "bottom right cheek", "bottom of lip", "bottom left of lip", "bottom right of lip", "top left cheek",
+                "bottom philtrum", "left lip", "right lip", "top philtrum", "nose to top", "bottom glabella", "top glabella",
+                "right infraorbital margin", "middle cheek left", "middle cheek right", "head of left eyebrow", "head of right eyebrow", "middle of left eyebrow", "middle of right eyebrow", 
+                "tail of left eyebrow", "tail of right eyebrow", "left hear", "right hear", "(to test)nothing", "top left eyelid", "left bottom eyelid",
+                "(to test)nothing", "(to test)nothing", "(to test)nothing", "top right eyelid", "bottom right eyelid", "left cheek #4", "right cheek #4"}; 
             for (int i=0; i < 49; i++)
             {
                 var newSlider = new FaceValueSliderItem();
                 newSlider.Translation = selectedMerc.FaceValues[i].Translation;
                 newSlider.Rotation = selectedMerc.FaceValues[i].Rotation;
                 newSlider.Scale = selectedMerc.FaceValues[i].Scale;
-                //newSlider.UpdateDescription(String.Format("{0}: Unknown Value", (i + 1)));
                 newSlider.UpdateDescription(String.Format(nameValue[i]));
                 _sliders.Add(newSlider);
             }
